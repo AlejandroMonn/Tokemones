@@ -3,37 +3,69 @@
     <head>
         <meta charset="utf-8" />
         <title>MOKEPON!</title>
+        <script src="./js/mokepon.js"></script>
+        <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
-        <h1>MOKEPON! 🔥💧🌱</h1>
-
         <section id="seleccionar-mascota">
-            <h2>Elige tu mascota:</h2>
+            <h1 class="titulo">Mokepon</h1>
 
-            MASCOTAS
+            <h2 class="subtitulo">Elige tu mascota:</h2>
 
-            <button>Seleccionar</button>
+            <div class="tarjetas">
+                <label class="tarjeta-de-mokepon" for="hipodoge">
+                    <p>Hipodoge</p>
+                    <img src="./assets/mokepons_mokepon_hipodoge_attack.png" alt="Hipodoge">
+                </label>
+                <input type="radio" name="mascota" id="hipodoge" />
+                
+                <label class="tarjeta-de-mokepon" for="capipepo">
+                    <p>Capipepo</p>
+                    <img src="./assets/mokepons_mokepon_capipepo_attack.png" alt="Capipepo">
+                </label>
+                <input type="radio" name="mascota" id="capipepo" />
+                
+                <label class="tarjeta-de-mokepon" for="ratigueya">
+                    <p>Ratigueya</p>
+                    <img src="./assets/mokepons_mokepon_ratigueya_attack.png" alt="Ratigueya">
+                </label>
+                <input type="radio" name="mascota" id="ratigueya" />
+            </div>
+
+            <button id="boton-mascota">Seleccionar</button>
         </section>
 
         <section id="seleccionar-ataque">
-            <h2>Elige tu ataque:</h2>
+            <h1 class="titulo">Mokepon</h1>
 
-            <p>Tu mascota tiene <span>3</span> vidas</p>
-            <p>Las mascota del enemigo tiene <span>3</span> vidas</p>
+            <h2 class="subtitulo">Elige tu ataque:</h2>
 
-            <p>
-                <button>Fuego 🔥</button>
-                <button>Agua 💧</button>
-                <button>Tierra 🌱</button>
-            </p>
+            <div>
+                <button id="boton-fuego" class="boton-de-ataque">Fuego 🔥</button>
+                <button id="boton-agua" class="boton-de-ataque">Agua 💧</button>
+                <button id="boton-tierra" class="boton-de-ataque">Tierra 🌱</button>
+            </div>
+
+            <div id="mensajes">
+                <div id="resultado">Mucha suerte</div>
+
+                <section id="reiniciar">
+                    <button id="boton-reiniciar">Reiniciar</button>
+                </section>
+            </div>
+
+            <div>
+                <div id="ataques-del-jugador"></div>
+                <div id="ataques-del-enemigo"></div>
+                <p>Tu mascota <span id="mascota-jugador"></span> tiene <span id="vidas-jugador">3</span> vidas</p>
+                <p>La mascota <span id="mascota-enemigo"></span> del enemigo tiene <span id="vidas-enemigo">3</span> vidas</p>
+            </div>
         </section>
-
-        <section id="mensajes">
-            <p>Tu mascota atacó con FUEGO, las mascota del enemigo atacó con TIERRA - GANASTE 🎉</p>
-        </section>
-
+    </body>
+</html>
         <section id="reiniciar">
             <button>Reiniciar</button>
         </section>
     </body>
+
 </html>
