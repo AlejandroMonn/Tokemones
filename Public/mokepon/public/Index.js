@@ -78,7 +78,3 @@ app.post("/mokepon/:jugadorId/posicion", (req, res) => {
 app.listen(8080, () => {
   console.log("Servidor funcionando")
 })
-
-app.listen(8080, () => {
-  console.log("Servidor funcionando")
-})
