@@ -68,7 +68,15 @@ app.post("/mokepon/:jugadorId/posicion", (req, res) => {
     jugadores[jugadorIndex].actualizarPosicion(x, y)
   }
 
-  res.end()
+  const enemigos = jugadores.filter((jugador) => jugadorId !== jugador.id)
+
+  res.send({
+    enemigos
+  })
+})
+
+app.listen(8080, () => {
+  console.log("Servidor funcionando")
 })
 
 app.listen(8080, () => {
