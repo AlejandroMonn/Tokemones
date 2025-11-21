@@ -93,9 +93,9 @@ app.post("/mokepon/:jugadorId/ataques", (req, res) => {
 })
 
 app.listen(8080, () => {
-  console.log("Servidor funcionando")
+  console.log("El Servidor esta funcionando")
 })
 
 app.listen(8080, () => {
-  console.log("Servidor funcionando")
+  console.log("El Servidor esta funcionando")
 })
