@@ -157,7 +157,7 @@ function seleccionarMascotaJugador() {
         spanMascotaJugador.innerHTML = inputRatigueya.id
         mascotaJugador = inputRatigueya.id
     } else {
-        alert('Selecciona una mascota')
+        alert('Select a pet')
         return
     }
 
@@ -195,15 +195,15 @@ function secuenciaAtaque() {
     botones.forEach((boton) => {
         boton.addEventListener('click', (e) => {
             if (e.target.textContent === '🔥') {
-                ataqueJugador.push('FUEGO')
+                ataqueJugador.push('FIRE')
                 boton.style.background = '#112f58'
                 boton.disabled = true   
             } else if (e.target.textContent === '💧') {
-                ataqueJugador.push('AGUA')
+                ataqueJugador.push('WATER')
                 boton.style.background = '#112f58'
                 boton.disabled = true  
             } else {
-                ataqueJugador.push('TIERRA')
+                ataqueJugador.push('EARTH')
                 boton.style.background = '#112f58'
                 boton.disabled = true  
             }
@@ -221,16 +221,16 @@ function seleccionarMascotaEnemigo(enemigo) {
 }
 
 function ataqueAleatorioEnemigo() {
-    console.log('Turno del enemigo...');
+    console.log('Enemy turn...');
     for (let i = 0; i < 5; i++) {
         let ataqueAleatorio = aleatorio(0, ataquesMokeponEnemigo.length - 1)
         
         if (ataqueAleatorio == 0 || ataqueAleatorio == 1) {
-            ataqueEnemigo.push('FUEGO')
+            ataqueEnemigo.push('FIRE')
         } else if (ataqueAleatorio == 3 || ataqueAleatorio == 4) {
-            ataqueEnemigo.push('AGUA')
+            ataqueEnemigo.push('WATER')
         } else {
-            ataqueEnemigo.push('TIERRA')
+            ataqueEnemigo.push('EARTH')
         }
     }
     iniciarPelea()
@@ -253,25 +253,25 @@ function combate() {
     for (let index = 0; index < ataqueJugador.length; index++) {
         if(ataqueJugador[index] === ataqueEnemigo[index]) {
             indexAmbosOponente(index, index)
-            crearMensaje("EMPATE")
-        } else if (ataqueJugador[index] === 'FUEGO' && ataqueEnemigo[index] === 'TIERRA') {
+            crearMensaje("TIE")
+        } else if (ataqueJugador[index] === 'FIRE' && ataqueEnemigo[index] === 'EARTH') {
             indexAmbosOponente(index, index)
-            crearMensaje("GANASTE")
+            crearMensaje("YOU WON")
             victoriasJugador++
             spanVidasJugador.innerHTML = victoriasJugador
-        } else if (ataqueJugador[index] ==='AGUA' && ataqueEnemigo[index] === 'FUEGO') {
+        } else if (ataqueJugador[index] ==='WATER' && ataqueEnemigo[index] === 'FIRE') {
             indexAmbosOponente(index, index)
-            crearMensaje("GANASTE")
+            crearMensaje("YOU WON")
             victoriasJugador++
             spanVidasJugador.innerHTML = victoriasJugador
-        } else if (ataqueJugador[index] === 'TIERRA' && ataqueEnemigo[index] === 'AGUA') {
+        } else if (ataqueJugador[index] === 'EARTH' && ataqueEnemigo[index] === 'WATER') {
             indexAmbosOponente(index, index)
-            crearMensaje("GANASTE")
+            crearMensaje("YOU WON")
             victoriasJugador++
             spanVidasJugador.innerHTML = victoriasJugador
         } else {
             indexAmbosOponente(index, index)
-            crearMensaje("PERDISTE")
+            crearMensaje("YOU LOST")
             victoriasEnemigo++
             spanVidasEnemigo.innerHTML = victoriasEnemigo
         }
@@ -281,11 +281,11 @@ function combate() {
 
 function revisarVidas() {
     if (victoriasJugador === victoriasEnemigo) {
-        crearMensajeFinal("Esto fue un empate!!!")
+        crearMensajeFinal("It was a tie!!!")
     } else if (victoriasJugador > victoriasEnemigo) {
-        crearMensajeFinal("FELICITACIONES! Ganaste :)")
+        crearMensajeFinal("CONGRATULATIONS! You won :)")
     } else {
-        crearMensajeFinal('Lo siento, perdiste :(')
+        crearMensajeFinal('Sorry, you lost :(')
     }
 }
 
@@ -429,10 +429,12 @@ function revisarColision(enemigo) {
 
     detenerMovimiento()
     clearInterval(intervalo)
+    console.log('Collision detected');
     
     sectionSeleccionarAtaque.style.display = 'flex'
     sectionVerMapa.style.display = 'none'
     seleccionarMascotaEnemigo(enemigo)
 }
+
 
 window.addEventListener('load', iniciarJuego)
